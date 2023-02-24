@@ -1,0 +1,44 @@
+name: Build Image
+on:
+  push:
+    # Sequence of patterns matched against refs/heads
+    # branches:
+    #   - master         # Push events on master branch
+    # Sequence of patterns matched against refs/tags
+    tags:
+      - "**"             # Push events to v1 tag
+jobs:
+  rust-nightly-wasm:
+    name: Rust Nightly Wasm
+    runs-on: ubuntu-latest
+    steps:
+      - uses: actions/checkout@master
+      - name: Set up Docker Buildx
+        uses: docker/setup-buildx-action@v2
+      - name: Publish to Registry
+        id: publish
+        uses: elgohr/Publish-Docker-Github-Action@v5
+        with:
+          name: hjin/rust-nightly-wasm
+          username: ${{ secrets.DOCKER_USERNAME }}
+          password: ${{ secrets.DOCKER_PASSWORD }}
+          workdir: rust-nightly-wasm
+          tag_names: true
+          platforms: linux/amd64,linux/arm64
+  rust-centos7:
+    name: Rust Centos7
+    runs-on: ubuntu-latest
+    steps:
+      - uses: actions/checkout@master
+      - name: Set up Docker Buildx
+        uses: docker/setup-buildx-action@v2
+      - name: Publish to Registry
+        id: publish
+        uses: elgohr/Publish-Docker-Github-Action@v5
+        with:
+          name: hjin/rust-centos7
+          username: ${{ secrets.DOCKER_USERNAME }}
+          password: ${{ secrets.DOCKER_PASSWORD }}
+          workdir: rust-centos7
+          tag_names: true
+          platforms: linux/amd64,linux/arm64
