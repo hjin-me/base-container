@@ -1,4 +1,4 @@
-name: Build Image
+name: Build Rust
 on:
   push:
     # Sequence of patterns matched against refs/heads
