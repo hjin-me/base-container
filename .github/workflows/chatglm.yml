@@ -22,3 +22,4 @@ jobs:
           password: ${{ secrets.DOCKER_PASSWORD }}
           workdir: chatglm
           tag_names: true
+          snapshot: true

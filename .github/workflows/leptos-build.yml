@@ -25,3 +25,4 @@ jobs:
           workdir: leptos-build
           tag_names: true
           platforms: linux/amd64,linux/arm64
+          snapshot: true
