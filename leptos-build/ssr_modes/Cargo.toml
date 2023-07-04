@@ -14,11 +14,11 @@ console_log = "1"
 cfg-if = "1"
 lazy_static = "1"
 leptos = { version = "0.4", features = [
-    "serde",
+    "serde", "nightly"
 ] }
-leptos_meta = { version = "0.4" }
+leptos_meta = { version = "0.4", features = ["nightly"] }
 leptos_actix = { version = "0.4", optional = true }
-leptos_router = { version = "0.4" }
+leptos_router = { version = "0.4", features = ["nightly"] }
 log = "0.4"
 serde = { version = "1", features = ["derive"] }
 thiserror = "1"
