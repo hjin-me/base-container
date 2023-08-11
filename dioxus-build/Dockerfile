@@ -1,6 +1,5 @@
 FROM rust:latest
-RUN curl -fsSL https://deb.nodesource.com/setup_18.x | bash -
-RUN apt-get install -y nodejs librust-clang-sys-dev
+RUN apt-get install -y librust-clang-sys-dev
 RUN rustup target add wasm32-unknown-unknown
 RUN rustup toolchain install nightly
 RUN rustup default nightly
