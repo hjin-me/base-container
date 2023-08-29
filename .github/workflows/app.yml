@@ -1,0 +1,29 @@
+name: Build App Base
+on:
+  push:
+    # Sequence of patterns matched against refs/heads
+    branches:
+      - app # Push events on master branch
+    # Sequence of patterns matched against refs/tags
+    tags:
+      - "**"             # Push events to v1 tag
+jobs:
+  app-base:
+    name: Base Container
+    runs-on: ubuntu-latest
+    steps:
+      - uses: actions/checkout@master
+      - name: Set up Docker Buildx
+        uses: docker/setup-buildx-action@v2
+      - name: Publish to Registry
+        id: publish
+        uses: elgohr/Publish-Docker-Github-Action@v5
+        with:
+          name: hjin/app
+          username: ${{ secrets.DOCKER_USERNAME }}
+          password: ${{ secrets.DOCKER_PASSWORD }}
+          workdir: app
+          tag_names: true
+          platforms: linux/amd64,linux/arm64
+          snapshot: true
+          tags: "latest"
