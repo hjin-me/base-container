@@ -2,6 +2,7 @@ FROM debian:bullseye
 RUN set -ex; \
 	apt-get update; \
 	apt-get install -y --no-install-recommends \
+        libssl3 \
         wget \
 	    tzdata \
 	    locales \
