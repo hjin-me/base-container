@@ -13,9 +13,9 @@ RUN set -ex; \
 RUN /usr/share/locales/install-language-pack zh_CN
 
 
-RUN wget https://dl.google.com/linux/direct/google-chrome-beta_current_amd64.deb &&\
+RUN wget https://dl.google.com/linux/direct/google-chrome-stable_current_amd64.deb &&\
     apt update -y &&\
-    apt install ./google-chrome-beta_current_amd64.deb -y &&\
-    rm -rf ./google-chrome-beta_current_amd64.deb &&\
+    apt install ./google-chrome-stable_current_amd64.deb -y &&\
+    rm -rf ./google-chrome-stable_current_amd64.deb &&\
     apt-get clean;
 ENV CHROME /usr/bin/google-chrome
