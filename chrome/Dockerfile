@@ -1,8 +1,7 @@
-FROM debian:bullseye
+FROM ubuntu:22.04
 RUN set -ex; \
 	apt-get update; \
 	apt-get install -y --no-install-recommends \
-        libssl3 \
         wget \
 	    tzdata \
 	    locales \
