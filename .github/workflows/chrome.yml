@@ -9,7 +9,7 @@ on:
       - "**"             # Push events to v1 tag
 jobs:
   chrome-node:
-    name: Node with Chrome
+    name: Chrome
     runs-on: ubuntu-latest
     steps:
       - uses: actions/checkout@master
