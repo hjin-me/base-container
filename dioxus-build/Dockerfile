@@ -1,5 +1,5 @@
 FROM rust:latest
-RUN apt update && apt install -y librust-clang-sys-dev musl-tools && apt clean
+RUN apt-get update && apt-get install -y librust-clang-sys-dev musl-tools
 RUN rustup toolchain install nightly
 RUN rustup default nightly
 RUN rustup target add wasm32-unknown-unknown
