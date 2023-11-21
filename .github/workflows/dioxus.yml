@@ -1,4 +1,4 @@
-name: Build Cargo Leptos
+name: Build Dioxus Cli
 on:
   push:
     # Sequence of patterns matched against refs/heads
@@ -8,7 +8,7 @@ on:
     tags:
       - "**"             # Push events to v1 tag
 jobs:
-  leptos-build:
+  dioxus-build:
     name: Rust Wasm With Dioxus
     runs-on: ubuntu-latest
     steps:
